@@ -24,9 +24,8 @@
      
      2. using load balancer 
 
+<img width="1365" height="723" alt="image" src="https://github.com/user-attachments/assets/91686337-c00e-4a2a-b21a-59a7765ed80f" />
 
-            
-     <img width="1356" height="721" alt="image" src="https://github.com/user-attachments/assets/1580950d-4798-41d0-b803-245f5924112b" />
 
 
 
