@@ -23,6 +23,8 @@
 <img width="1359" height="721" alt="image" src="https://github.com/user-attachments/assets/31f235bd-61df-41cf-91ca-f1c82a385082" />
      
      2. using load balancer 
+
+
             
      <img width="1356" height="721" alt="image" src="https://github.com/user-attachments/assets/1580950d-4798-41d0-b803-245f5924112b" />
 
