@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
- 
-env: 
+
+env:
   IMAGE_NAME: lithu213/java-app
   EC2_HOST: ${{ secrets.EC2_HOST }}
   EC2_USER: ubuntu
@@ -42,7 +42,7 @@ jobs:
       - name: Push Docker Image
         run: docker push $IMAGE_NAME:latest
 
-      - name: Deploy on EC2
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ env.EC2_HOST }}
