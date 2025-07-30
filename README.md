@@ -20,11 +20,12 @@
 
  
      1. using ec2 instance ip addres 
-     <img width="1365" height="719" alt="image" src="https://github.com/user-attachments/assets/a5eb5aa4-cccb-4919-902f-6d6de334b71c" />
-     2. using load balancer 
-     <img width="1356" height="721" alt="image" src="https://github.com/user-attachments/assets/f1c46cd0-c638-4df1-9f2a-4ca1b71f57e7" />
-
+<img width="1359" height="721" alt="image" src="https://github.com/user-attachments/assets/31f235bd-61df-41cf-91ca-f1c82a385082" />
      
+     2. using load balancer 
+            
+     <img width="1356" height="721" alt="image" src="https://github.com/user-attachments/assets/1580950d-4798-41d0-b803-245f5924112b" />
+
 
 
    
