@@ -1,53 +1,54 @@
 name: CI/CD Java App to EC2
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 env:
-IMAGE_NAME: lithu1/java-app
-EC2_HOST: ${{ secrets.EC2_HOST }}
-EC2_USER: ubuntu
-EC2_KEY: ${{ secrets.EC2_KEY }}
-REGION: us-east-1
+  IMAGE_NAME: lithu1/java-app
+  EC2_HOST: ${{ secrets.EC2_HOST }}
+  EC2_USER: ubuntu
+  EC2_KEY: ${{ secrets.EC2_KEY }}
+  REGION: us-east-1
 
 jobs:
-build-and-deploy:
-runs-on: ubuntu-latest
- steps:
-- name: Checkout code
-  uses: actions/checkout@v3
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
-- name: Set up Java
-  uses: actions/setup-java@v3
-  with:
-    java-version: '17'
-    distribution: 'temurin'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-- name: Build Java JAR
-  run: |
-    mkdir -p build/classes
-    javac -d build/classes src/Main.java
-    mkdir -p build/libs
-    jar cfe build/libs/project.jar Main -C build/classes .
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
 
-- name: Log in to Docker Hub
-  run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: Build Java JAR
+        run: |
+          mkdir -p build/classes
+          javac -d build/classes src/Main.java
+          mkdir -p build/libs
+          jar cfe build/libs/project.jar Main -C build/classes .
 
-- name: Build Docker Image
-  run: docker build -t $IMAGE_NAME:latest .
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-- name: Push Docker Image
-  run: docker push $IMAGE_NAME:latest
+      - name: Build Docker Image
+        run: docker build -t $IMAGE_NAME:latest .
 
-- name: Deploy on EC2
-  uses: appleboy/ssh-action@master
-  with:
-    host: ${{ env.EC2_HOST }}
-    username: ${{ env.EC2_USER }}
-    key: ${{ env.EC2_KEY }}
-    script: |
-      docker rm -f java-app || true
-      docker pull $IMAGE_NAME:latest
-      docker run -d -p 9000:9000 --name java-app $IMAGE_NAME:latest
+      - name: Push Docker Image
+        run: docker push $IMAGE_NAME:latest
+
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.EC2_HOST }}
+          username: ${{ env.EC2_USER }}
+          key: ${{ env.EC2_KEY }}
+          script: |
+            docker rm -f java-app || true
+            docker pull $IMAGE_NAME:latest
+            docker run -d -p 9000:9000 --name java-app $IMAGE_NAME:latest
