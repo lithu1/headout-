@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: lithu1/java-app
+  IMAGE_NAME: lithu213/java-app
   EC2_HOST: ${{ secrets.EC2_HOST }}
   EC2_USER: ubuntu
   EC2_KEY: ${{ secrets.EC2_KEY }}
