@@ -7,9 +7,24 @@
    <img width="1123" height="585" alt="image" src="https://github.com/user-attachments/assets/f6ab338a-535f-46d7-8926-cac86bf41d8d" />
    <img width="1363" height="676" alt="image" src="https://github.com/user-attachments/assets/eb5b4155-7bc7-472b-8794-2eb35173ce01" />
   <img width="1363" height="679" alt="image" src="https://github.com/user-attachments/assets/9604a652-1b20-4f81-9ddc-447a0aea3119" />
--------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+
 3.deployed it into ec2 instance using Github actions using Docker image 
- 
+
+ <img width="1361" height="676" alt="image" src="https://github.com/user-attachments/assets/d8bb5406-d3c7-41d6-80b9-0553a9f77349" />
+
+
+
+ ------------------------------------------------------------------------------------------------------------------------------------
+ 4.Now  the java file is able to acess using public ip of the ec2 instance and the Load balancer
+     1. using ec2 instance ip addres 
+     <img width="1365" height="719" alt="image" src="https://github.com/user-attachments/assets/a5eb5aa4-cccb-4919-902f-6d6de334b71c" />
+     2. using load balancer 
+     <img width="1356" height="721" alt="image" src="https://github.com/user-attachments/assets/f1c46cd0-c638-4df1-9f2a-4ca1b71f57e7" />
+
+     
+
+
    
  
 
